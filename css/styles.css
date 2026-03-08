@@ -26,9 +26,6 @@ button {
   font-family: inherit;
   cursor: pointer;
 }
-img {
-  display: block;
-}
 
 /* #endregion */
 
@@ -72,13 +69,13 @@ img {
   position: absolute;
   width: 1px;
   height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0); /* Deprecated but useful for legacy IE support */
-  clip-path: inset(50%);
-  white-space: nowrap;
+  margin: -1px;
   border: 0;
   padding: 0;
-  margin: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
 }
 /* #endregion */
 
@@ -252,15 +249,17 @@ img {
   gap: 24px;
 }
 .team-item {
+  width: calc((100% - 72px) / 4);
   border-radius: 0 0 4px 4px;
-  padding-block: 0px 32px;
-  padding-inline: 0px;
   box-shadow:
     0 2px 1px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16),
     0 1px 6px 0 rgba(46, 47, 66, 0.08);
   text-align: center;
   background-color: #ffffff;
+}
+.team-member {
+  padding-block: 0px 32px;
 }
 .team-item-title {
   padding-top: 32px;
@@ -275,6 +274,7 @@ img {
 .team-item-role {
   font-size: 16px;
   letter-spacing: 0.02em;
+  text-align: center;
 }
 /* #endregion */
 
@@ -289,15 +289,14 @@ img {
   text-transform: capitalize;
   color: #2e2f42;
 }
-.portfolio-item {
+.portfolio-item-block {
+  border-top: none;
   padding-inline: 0px;
   border: 1px solid #e7e9fc;
-}
-.portfolio-text {
   max-width: 328px;
-  padding: 32px 16px;
 }
 .portfolio-item-title {
+  padding: 32px 16px;
   margin-bottom: 8px;
   font-weight: 500;
   font-size: 20px;
